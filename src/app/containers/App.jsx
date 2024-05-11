@@ -25,6 +25,7 @@ import Header from '../components/Header';
 import IntlProvider from '../components/IntlProvider';
 import MissedPage from '../components/MissedPage';
 import SearchParamsConfigurator from '../components/SearchParamsConfigurator';
+import UserList from "../../custom-pages/user/UserList";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,6 +72,10 @@ function App() {
                 )}
                 {!isFetchingUser && (
                   <Routes>
+                    <Route
+                        element={<UserList/>}
+                        path={`${pageURLs[pages.userListPage]}`}
+                    />
                     <Route
                       element={<DefaultPage />}
                       path={`${pageURLs[pages.defaultPage]}`}
