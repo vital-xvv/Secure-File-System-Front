@@ -16,7 +16,7 @@ const initialUserItemState = {
 const userListReducer = (state = [], action) => {
     switch(action.type){
         case DELETE_FROM_USER_LIST: {
-            return state.filter(user => user.id === action.payload);
+            return state.filter(user => user.id !== action.payload);
         }
         case CREATE_NEW_USER_IN_USER_LIST: {
             state.push(action.payload);
