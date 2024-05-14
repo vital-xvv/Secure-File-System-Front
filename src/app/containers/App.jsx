@@ -28,7 +28,8 @@ import SearchParamsConfigurator from '../components/SearchParamsConfigurator';
 import UserList from "../../custom-pages/user/UserList";
 import {SnackbarProvider} from "notistack";
 import FileList from "../../custom-pages/file/list/FileList";
-import ViewFile from "../../custom-pages/file/item/ViewFile";
+import ViewEditFile from "../../custom-pages/file/item/ViewEditFile";
+import CreateFile from "../../custom-pages/file/item/CreateFile";
 
 function App() {
   const dispatch = useDispatch();
@@ -81,8 +82,12 @@ function App() {
                         path={`${pageURLs[pages.filesPage]}`}
                     />
                     <Route
-                        element={<ViewFile/>}
+                        element={<ViewEditFile/>}
                         path={`${pageURLs[pages.filePage]}`}
+                    />
+                    <Route
+                        element={<CreateFile/>}
+                        path={`${pageURLs[pages.createFilePage]}`}
                     />
                     <Route
                         element={<UserList/>}

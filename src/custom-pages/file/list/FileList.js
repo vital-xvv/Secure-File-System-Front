@@ -8,7 +8,7 @@ import {
     TableContainer,
     TableHead,
     TablePagination,
-    TableRow
+    TableRow, Tooltip
 } from "@mui/material";
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {useDispatch, useSelector} from "react-redux";
@@ -17,6 +17,11 @@ import {fetchPage} from "../../../app/actions/fileActionCreators";
 import ConfirmModal from "../modal/ConfirmModal";
 import FilterModal from "../modal/FilterModal";
 import storage, {keys} from "../../../misc/storage";
+import AddIcon from '@mui/icons-material/Add';
+import { red } from '@mui/material/colors';
+import {useNavigate} from "react-router-dom";
+import pageURLs from "../../../constants/pagesURLs";
+import * as pages from "../../../constants/pages";
 
 const columnNames =
     [
@@ -28,10 +33,18 @@ const columnNames =
         {id: "ownerId", name: "Owner ID"},
     ];
 
+const createButStyles = {
+    position: 'absolute',
+    bottom: '5%',
+    right: '3%',
+    padding: "1rem",
+}
+
 
 const FileList = () => {
     const files = useSelector(state => state.files);
     const dispatch = useDispatch();
+    const nagivate = useNavigate();
 
     const[page, setPage] = useState(files.page);
     const[size, setSize] = useState(files.size);
@@ -73,9 +86,12 @@ const FileList = () => {
         dispatch(fetchPage(body))
     }
 
+    const handleCreate = () => {
+        nagivate(pageURLs[pages.createFilePage]);
+    }
+
     return (
         <Container sx={{marginTop: "16px"}}>
-            {console.log(files)}
             <Paper>
                 <TableContainer>
                     <Table>
@@ -119,6 +135,11 @@ const FileList = () => {
             </Paper>
             <ConfirmModal open={openModal} setOpen={setOpenModal}/>
             <FilterModal open={openFilterModal} setOpen={setOpenFilterModal}/>
+            <Tooltip onClick={handleCreate} title="Create file" placement="bottom-end" sx={{...createButStyles}}>
+                <IconButton color="info">
+                    <AddIcon sx={{fontSize: "2.6rem"}} color="info"/>
+                </IconButton>
+            </Tooltip>
         </Container>
     );
 };

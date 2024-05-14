@@ -85,8 +85,6 @@ export const deleteFileById = (fileId, callBack) => async (dispatch, getState) =
         callBack(getState());
         dispatch(fetchPage(body));
     });
-
-
 }
 
 export const updateFile = (fileDto, callBack) => (dispatch, getState) => {
@@ -104,6 +102,21 @@ export const updateFile = (fileDto, callBack) => (dispatch, getState) => {
                 variant: "error"
             }));
         }).finally(() => callBack(getState()));
+}
+
+export const createNewFile = (fileDto, callback) => (dispatch, getState) => {
+    fileApi.createFile(fileDto).
+        then(res => {
+            dispatch(setSnackState({
+                message: `Successfully created file with id: ${res.data.id}!`,
+                variant: "success"
+            }));
+        }).catch(error => {
+            dispatch(setSnackState({
+                message: error.response.data.message,
+                variant: "error"
+            }));
+        }).finally(() => callback(getState()));
 }
 
 

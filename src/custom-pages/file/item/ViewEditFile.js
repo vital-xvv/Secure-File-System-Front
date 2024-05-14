@@ -48,7 +48,7 @@ const errorInitialState = {
 };
 
 
-const ViewFile = () => {
+const ViewEditFile = () => {
     const {enqueueSnackbar} = useSnackbar();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -309,4 +309,4 @@ const ViewFile = () => {
     );
 };
 
-export default ViewFile;
+export default ViewEditFile;

@@ -8,6 +8,7 @@ const result = {
   [pages.usersPage]: `${config.UI_URL_PREFIX}/${pages.usersPage}`,
   [pages.filesPage]: `${config.UI_URL_PREFIX}/${pages.filesPage}`,
   [pages.filePage]: `${config.UI_URL_PREFIX}/${pages.filePage}`,
+  [pages.createFilePage]: `${config.UI_URL_PREFIX}/${pages.createFilePage}`,
 };
 
 export default result;

@@ -2,5 +2,4 @@ export const FETCH_FILE_LIST = "SET_FILE_LIST";
 export const DELETE_FROM_FILE_LIST = "DELETE_FROM_FILE_LIST";
 export const UPDATE_FILE = "UPDATE_FILE";
 export const CREATE_FILE = "CREATE_FILE";
-
 export const SET_CURRENT_FILE_ID = "SET_CURRENT_FILE_ID";

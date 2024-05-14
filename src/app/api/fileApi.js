@@ -1,14 +1,11 @@
 import axios from "axios";
 import {PUBLIC_URL} from "./index";
 
-
 const fileApi = axios.create({
     baseURL: `${PUBLIC_URL}/file`
 })
 
 // File API Endpoint Methods
-
-// Fetch File Page
 
 export const fetchFilteredFilePage = (body) => {
     return fileApi.post("/_list", body)
@@ -24,4 +21,8 @@ export const putUpdateFile = (fileDto) => {
 
 export const getAllLanguages = () => {
     return fileApi.get("/languages");
+}
+
+export const createFile = (fileDto) => {
+    return fileApi.post("", fileDto)
 }
