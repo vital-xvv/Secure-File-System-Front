@@ -247,7 +247,7 @@ const CreateFile = () => {
                                     sx={{flexGrow: 0.5}}
                                     onClick={(e) => handleCreate(e)}
                                 >
-                                    Update
+                                    Create
                                 </Button>
                             </Stack>
                         </Stack>
