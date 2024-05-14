@@ -1,0 +1,15 @@
+.row #delBut, .row #viewBut{
+    color: transparent;
+}
+
+.row:hover #delBut {
+    color: red;
+}
+
+.row:hover #viewBut {
+    color: #68ff35;
+}
+
+.row:hover {
+    background: aliceblue;
+}

@@ -25,6 +25,11 @@ import Header from '../components/Header';
 import IntlProvider from '../components/IntlProvider';
 import MissedPage from '../components/MissedPage';
 import SearchParamsConfigurator from '../components/SearchParamsConfigurator';
+import UserList from "../../custom-pages/user/UserList";
+import {SnackbarProvider} from "notistack";
+import FileList from "../../custom-pages/file/list/FileList";
+import ViewEditFile from "../../custom-pages/file/item/ViewEditFile";
+import CreateFile from "../../custom-pages/file/item/CreateFile";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +61,7 @@ function App() {
     <UserProvider>
       <AuthoritiesProvider>
         <ThemeProvider>
+          <SnackbarProvider maxSnack={3}>
           <BrowserRouter>
             <SearchParamsConfigurator />
             {/* This is needed to let first render passed for App's
@@ -71,6 +77,22 @@ function App() {
                 )}
                 {!isFetchingUser && (
                   <Routes>
+                    <Route
+                        element={<FileList/>}
+                        path={`${pageURLs[pages.filesPage]}`}
+                    />
+                    <Route
+                        element={<ViewEditFile/>}
+                        path={`${pageURLs[pages.filePage]}`}
+                    />
+                    <Route
+                        element={<CreateFile/>}
+                        path={`${pageURLs[pages.createFilePage]}`}
+                    />
+                    <Route
+                        element={<UserList/>}
+                        path={`${pageURLs[pages.usersPage]}`}
+                    />
                     <Route
                       element={<DefaultPage />}
                       path={`${pageURLs[pages.defaultPage]}`}
@@ -126,6 +148,7 @@ function App() {
               </IntlProvider>
             )}
           </BrowserRouter>
+          </SnackbarProvider>
         </ThemeProvider>
       </AuthoritiesProvider>
     </UserProvider>
