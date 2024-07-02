@@ -126,8 +126,8 @@ const FileList = () => {
                 </TableContainer>
                 <TablePagination
                     rowsPerPageOptions={[5,10,15]}
-                    page={page}
-                    rowsPerPage={size}
+                    page={files.page}
+                    rowsPerPage={files.size}
                     count={files.totalElements}
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
