@@ -13,6 +13,9 @@ const setItem = (key, value) => {
 export const keys = {
   TOKEN: 'TOKEN',
   TOKEN_EXPIRATION: 'TOKEN_EXP',
+  PAGINATION_FILTER_OBJECT: 'PAGINATION_FILTER_OBJECT',
+  CURRENT_FILE_OBJECT: 'CURRENT_FILE_OBJECT',
+  ACCESS_TOKEN: 'ACCESS_TOKEN',
 };
 
 const forExport = {
